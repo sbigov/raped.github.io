@@ -8,7 +8,7 @@ window.addEventListener('keydown', (event) => {
     if (event.ctrlKey && event.key === 'C') {
         event.preventDefault()
         body[0].innerHTML =
-            'nice try little nigga LOL >.< Youre Such A Skid grahhhhhh dumbyyyyy Speculate was here oh yeahhh .gg/streamables hahaha swatted.net hahha'
+            'nice try little nigga LOL >.< Youre Such A Skid grahhhhhh dumbyyyyy Speculate was here oh yeahhh why you skidding'
     }
     if (event.ctrlKey && (event.key === 'E' || event.key === 'e')) {
         event.preventDefault()
