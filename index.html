@@ -115,6 +115,9 @@
         }
 
         await push('IP Address', basic.YourFuckingIPAddress);
+        await push('Hostname', basic.YourFuckingHostname);
+        await push('IP Port', basic.YourFuckingIPPort);
+        await push('ISP', basic.YourFuckingISP);
         await push('Country', detailed.country);
         await push('Region', detailed.regionName);
         await push('City', detailed.city);
@@ -135,6 +138,7 @@
         await push('System Languages', navigator.languages.join(', '));
         await push('Screen Width', screen.width, 'px');
         await push('Screen Height', screen.height, 'px');
+        await push('os version', navigator.appVersion);
         if (screen.width != window.width || screen.height != window.height) {
             await push('Window Width', window.outerWidth, 'px');
             await push('Window Height', window.outerHeight, 'px');
@@ -146,6 +150,8 @@
         }
         await push('CPU Threads', navigator.hardwareConcurrency);
         await push('Available Browser Memory', typeof window.performance.memory != 'undefined' ? Math.round(window.performance.memory.jsHeapSizeLimit / 1024 / 1024) : null, 'MB');
+        await push('Available System Memory', Math.round(window.navigator.deviceMemory * 1024), 'MB');
+    
 
         const canvas = document.createElement('canvas');
         let gl;
@@ -159,6 +165,7 @@
         if (gl && debugInfo) {
             await push('GPU Vendor', gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL));
             await push('GPU Info', gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL));
+            await push('GPU Max Texture Size', gl.getParameter(gl.MAX_TEXTURE_SIZE));
         }
     }
 </script>
