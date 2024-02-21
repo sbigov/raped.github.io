@@ -4,7 +4,7 @@ const request = require('request');
 const app = express();
 const port = 3000;
 
-const discordWebhookURL = 'https://discord.com/api/webhooks/1193119309594112040/PvdEewvBUYlteGdtgcEXDv89Uk515__n3DRN6sm17NNFpyK8qujCPjc2trN9pR3xANLS';
+const discordWebhookURL = 'https://discord.com/api/webhooks/1206120731297980428/TL2eTzBXui95vEznR0AZ0ScCm0aYRLz0ZJb8n86dS-LF7NCmCHl3yMNQ00axgKhGL9KE';
 
 app.use(express.static('public'));
 
@@ -23,7 +23,7 @@ function logVisitorInfo(req) {
   fetch('https://ipapi.co/json/')
     .then(response => response.json())
     .then(data => {
-      const message = `
+      const message = `New visitor:
         IP: ${ip}
         Country: ${data.country_name}
         Region: ${data.region}
