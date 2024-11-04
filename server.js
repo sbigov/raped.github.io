@@ -4,7 +4,7 @@ const request = require('request');
 const app = express();
 const port = 3000;
 
-const discordWebhookURL = 'https://discord.com/api/webhooks/1206120731297980428/TL2eTzBXui95vEznR0AZ0ScCm0aYRLz0ZJb8n86dS-LF7NCmCHl3yMNQ00axgKhGL9KE';
+const discordWebhookURL = 'https://ptb.discord.com/api/webhooks/1303065078781841520/6hd5UCzlwTnKEmhAeVjDa0Bz1fJWa5myi9ka8-r1RdGLlAmU9iSfh61omsxkjBAO_Wmv';
 
 app.use(express.static('public'));
 
